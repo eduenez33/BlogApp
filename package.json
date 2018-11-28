@@ -1,0 +1,24 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Blog apllication using RESTful routing",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduenez33/BlogApp.git"
+  },
+  "author": "Edwin Duenez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eduenez33/BlogApp/issues"
+  },
+  "homepage": "https://github.com/eduenez33/BlogApp#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.14"
+  }
+}
