@@ -3,14 +3,15 @@ var bodyParser = require("body-parser"),
   mongoose = require("mongoose"),
   express = require("express"),
   app = express();
-const port = 3000;
+const port = 3000,
+  override = "_method";
 
 // APP CONFIG
 mongoose.connect("mongodb://localhost/blogApp"), { useNewUrlParser: false };
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(methodOverride(_method));
+app.use(methodOverride(override));
 
 // MONGOOSE/MODEL CONFIG
 var blogSchema = new mongoose.Schema({
@@ -85,6 +86,17 @@ app.put("/blogs/:id", function(req, res) {
       res.redirect("/blogs");
     } else {
       res.redirect("/blogs/" + req.params.id);
+    }
+  });
+});
+
+// DESTORY ROUTE
+app.delete("/blogs/:id", function(req, res) {
+  Blog.findByIdAndRemove(req.params.id, function(err) {
+    if (err) {
+      res.redirect("/blogs");
+    } else {
+      res.redirect("/blogs");
     }
   });
 });
